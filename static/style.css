@@ -74,7 +74,7 @@ img {
 /*End of Landing Page*/
 
 /*Start of Basic Info Page*/
-#basiccontainer { 
+#basiccontainer {
 	margin-top: -100px;
 	margin-left: 50px;
 	transform: scale(0.6);
@@ -238,6 +238,27 @@ textarea:focus, input:focus{
 	bottom: 50px;
 }
 
+.findmybuddy {
+	width: auto;
+	left: 1050px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 
+.loading-icon {
+	width: 600px;
+}
 
+#emailcontainer {
+	margin-top: 100px;
+	margin-left: 50px;
+	transform: scale(0.6);
+}
 
+#loadingcontainer {
+	margin: auto;
+	width: 70%;
+	text-align: center;
+}
