@@ -4,20 +4,49 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
+    <div id="container">
+      <a href="basicinfo"><input type="submit" value ="back"></a>
+      <div class="pagetitle">
+        <h1>What do you look like? Upload a photo.</h1>
+      </div>
+      <div id="main">
+        <form method="post" enctype="multipart/form-data" action="photo">
+          <input type="file" name="photo">
+          <input type="submit" value="Upload" name="photo">
+          <input type="hidden" value={{entity_key}} name="entity_key">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <html>
+  <head> -->
+    <!-- <title>Basic Info</title> -->
+   <!-- <link rel="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
     <a href="basicinfo"><input class="navbutton back" type="submit" value ="back"></a>
     <div id="container">
       <div class="pagetitle" id="pagetitle">What do you look like? Upload a photo.</div>
       <div id="main">
         <form method="post" action="photo">
-        <img src="https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/user.png" alt="User Icon" width="200px"> <br />
+        <img src="https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/user.png" alt="User Icon" width="200px"> <br /> -->
 
         <!-- style image into a circle -->
-        <input type=file name=file>
-        <a href= "email"><input type="submit" value=Upload></a>
+        <!-- <div class="photoupload"> -->
+        <!-- <label class="labels" id="photos" for="photo">Upload a photo:</label> -->
+          <!-- <form method="post" enctype="multipart/form-data" action="photo">
+            <div class="photobuttons">
+              <p><input class="choose" type="file" name="photo">
+              <input class="upload" type="submit" value =Upload></a>
+            </div>
+          </form>
+        </div> -->
         <!-- temporary path -->
-      </div>
+      <!-- </div>
     </div>
-  </body>
+  </body> -->
 
   <!-- <script type="text/javascript">
         function readURL(input) {
@@ -32,4 +61,3 @@
             }
         }
     </script> -->
-</html>

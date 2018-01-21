@@ -15,26 +15,30 @@
 # [START app]
 import logging
 import os
+import base64
+import cloudstorage as gcs
+import io
 
 # [START imports]
-from flask import Flask, render_template, request, redirect, url_for, flash
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request, send_file
 from google.appengine.ext import ndb
+from google.appengine.api import app_identity
 # [END imports]
 
-UPLOAD_FOLDER = '../static'
+UPLOAD_FOLDER = './img'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # [START create_app]
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SESSION_TYPE'] = 'filesystem'
 # [END create_app]
 
 class User(ndb.Model):
     name = ndb.StringProperty()
     major = ndb.StringProperty()
     year = ndb.StringProperty()
+    photo = ndb.BlobProperty()
+    user_id = ndb.IntegerProperty()
 
 #LANDINGPAGE
 @app.route('/')
@@ -42,88 +46,112 @@ def landing_page():
     return render_template('landingpage.html')
 
 #BASICINFO
-@app.route('/basicinfo', methods=['GET', 'POST'])
+@app.route('/basicinfo', methods=['GET'])
 def dropdown():
     return render_template('/basicinfo.html')
 
-@app.route('/submitted', methods=['POST'])
+
+@app.route('/basicinfo', methods=['POST'])
 def submitted_form():
     name = request.form['name']
     major = request.form['major']
     year = request.form['year']
+
     # important
     new_entity = User(name = name, major = major, year = year)
     # will use key to query
     entity_key = new_entity.put()
-
+    print entity_key
     # entity_key.delete()
 
     # [END submitted]
     # [START render_template]
     return render_template(
-        'submitted_form.html',
-        name=name,
-        major=major,
-        year=year)
+        'photo.html', entity_key=entity_key.urlsafe())
     # [END render_template]
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+@app.route('/photo', methods=['GET'])
+def get_photo():
+    return render_template('photo.html')
+
+@app.route('/photo', methods=['POST'])
+def upload_photo():
+    photo = request.files['photo']
+    entity_key = request.form['entity_key']
+    if entity_key:
+        print entity_key
+        print "I got the entity"
+    else:
+        print "hi"
+    new_key = ndb.Key(urlsafe=entity_key)
+    user = new_key.get()
+    print user.name
+    #user.photo = ndb.Blob(photo)
+    print type(user)
+    print type(photo)
+    # user.photo = base64.b64encode(photo.read()).decode('UTF-8')
+    # print type(user.photo)
+    # user.put()
+    bucket_name = 'tomeeto-hackdavis.appspot.com';
+    #app_identity.get_default_gcs_bucket_name()
+    print bucket_name
+    filename = '/' + bucket_name + '/' + photo.filename
+
+    gcs_file = gcs.open(filename, 'w')
+    gcs_file.write(photo.read())
+    gcs_file.close()
+
+    gcs_file = gcs.open(filename)
+    contents = gcs_file.read()
+    gcs_file.close()
+
+
+    return render_template(
+        'displayphoto.html',
+        bucket_name=bucket_name,
+        img_name=photo.filename
+    )
+    # return send_file(io.BytesIO(contents),
+    #                mimetype='image/jpeg')
+
+@app.route('/displayphoto', methods=['GET'])
+def get_displayphoto():
+    return render_template("displayphoto.html")
+
+# def allowed_file(filename):
+#     return '.' in filename and \
+#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 #PHOTO
-# print("before photo", file=sys.stdout)
-
-@app.route('/photo', methods=['GET', 'POST'])
-def photo():
-    if request.method == 'GET':
-        return render_template('photo.html')
+# @app.route('/photo', methods=['GET', 'POST'])
+# def photo():
+#     return render_template('/photo.html')
 # def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        # if 'file' not in request.files:
-        #     # flash('No file part')
-        #     return redirect(request.url)
-        # file = request.files['file']
-        # # if user does not select file, browser also
-        # # submit a empty part without filename
-        # if file.filename == '':
-        #     # flash('No selected file')
-        #     return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return render_template('photouploaded.html', file)
-
-@app.route('/photouploaded', methods=['GET', 'POST'])
-def photouploaded():
-    if request.method == 'GET':
-        return render_template('photouploaded.html')
+#     if request.method == 'POST':
+#         # check if the post request has the file part
+#         if 'file' not in request.files:
+#             flash('No file part')
+#             return redirect(request.url)
+#         file = request.files['file']
+#         # if user does not select file, browser also
+#         # submit a empty part without filename
+#         if file.filename == '':
+#             flash('No selected file')
+#             return redirect(request.url)
+#         if file and allowed_file(file.filename):
+#             filename = secure_filename(file.filename)
+#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#     return render_template('photo.html')
 
 #FOODINFO
-@app.route('/foodinfo', methods=['GET','POST'])
-def food_info():
-    if request.method == 'GET':
-        return render_template('foodinfo.html')
-    else:
-        food = request.form['food']
-        hobbies = request.form['hobbies']
-        interests = request.form['interests']
-
-        # important
-        new_entity = User(food = food, hobbies = hobbies, interests = interests)
-        # will use key to query
-        entity_key = new_entity.put()
-
-# @app.route('/submitted', methods=['POST'])
+# @app.route('/foodinfo', methods=['POST'])
 # def submitted_form():
 #     name = request.form['name']
-#     major = request.form['major']
-#     print "hi"
-#     year = request.form['year']
-#     print "hello"
+#     email = request.form['email']
+#     site = request.form['site_url']
+#     comments = request.form['comments']
 #
 #     # important
-#     new_entity = User(name = name, major = major, year = year)
+#     new_entity = User(username = name, email = email)
 #     # will use key to query
 #     entity_key = new_entity.put()
 #
@@ -134,10 +162,16 @@ def food_info():
 #     return render_template(
 #         'submitted_form.html',
 #         name=name,
-#         major=major,
-#         year=year)
+#         email=email,
+#         site=site,
+#         comments=comments)
+    #[END render_template]
 
-#EMAIL
+
+    # to delete
+    # call entity_key.delete to delete
+    # query = User.query(User.preferences == user1.preference)
+    # returns array, get first user, match and remove from datastore
 @app.route('/email', methods=['GET','POST'])
 def email():
     if request.method == 'GET':
@@ -153,11 +187,6 @@ def email():
 @app.route('/loading')
 def loading():
     return render_template('loading.html')
-
-    # to delete
-    # call entity_key.delete to delete
-    # query = User.query(User.preferences == user1.preference)
-    # returns array, get first user, match and remove from datastore
 
 @app.errorhandler(500)
 def server_error(e):
