@@ -216,6 +216,7 @@ textarea:focus, input:focus{
 	color: #BFEAFD;
 	font-size: 30px;
 	width: 125px;
+	padding: 0px;
 }
 
 #navbutton:hover {
