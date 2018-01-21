@@ -207,7 +207,7 @@ textarea:focus, input:focus{
 /*end of food info page*/
 
 /*back and next buttons*/
-.navbutton {
+#navbutton {
 	background-color: transparent;
 	border-color: #BFEAFD;
 	border-width: 4px;
@@ -216,10 +216,9 @@ textarea:focus, input:focus{
 	color: #BFEAFD;
 	font-size: 30px;
 	width: 125px;
-	transform: scale(0.8);
 }
 
-.navbutton:hover {
+#navbutton:hover {
 	cursor: pointer;
 	animation: fadein 1s forwards;
 }
@@ -227,6 +226,9 @@ textarea:focus, input:focus{
 .back {
 	/*margin-left: -80px;
 	margin-top: -50px;*/
+	text-align: center;
+	transform: scale(0.5);
+	position: fixed;
 }
 
 .next {
@@ -234,8 +236,8 @@ textarea:focus, input:focus{
 	display: inline-block;
 	float: right;*/
 	position:fixed;
-	left: 1200px;
-	bottom: 50px;
+	left: 1100px;
+	/*bottom: -300px;*/
 }
 
 .findmybuddy {
