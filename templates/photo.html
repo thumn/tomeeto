@@ -7,23 +7,28 @@
     <div id="container">
       <a href="basicinfo"><input type="submit" value ="back"></a>
       <div class="pagetitle">
-        <h1>What do you look like? Uplod a photo.</h1>
+        <h1>What do you look like? Upload a photo.</h1>
       </div>
       <div id="main">
-        <form method="post" action="{{ url_for('submitted_form') }}">
-          <label for="name">My name is:</label>
-          <input type="text" name="name"><br />
-          <label for="major">My major is:</label>
-          <input type="major" name="major"><br />
-          <label for="year">My year is:</label>
-          <select name=years method="GET" action="/basicinfo">
-            {% for year in years %}
-            <option value="{{year}}" SELECTED>{{year}}</option>
-            {% endfor %}
-          </select><br />
-          <a href="photo"><input type="submit" value ="next"></a>
+        <form method="post" enctype="multipart/form-data">
+          <p><input type= file name=file>
+          <input type="submit" value =Upload></a>
         </form>
       </div>
     </div>
   </body>
+
+  <!-- <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script> -->
 </html>
