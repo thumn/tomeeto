@@ -24,16 +24,27 @@ from google.appengine.ext import ndb
 app = Flask(__name__)
 # [END create_app]
 
+
 class User(ndb.Model):
     username = ndb.StringProperty()
     email = ndb.StringProperty()
 
+@app.route('/')
+def landing_page():
+    return render_template('landingpage.html')
+
+
 
 # [START form]
-@app.route('/form')
-def form():
-    return render_template('form.html')
+# @app.route('/basicinfo')
+# def form():
+#     return render_template('basicinfo.html')
 # [END form]
+
+@app.route('/basicinfo', methods=['GET'])
+def dropdown():
+    years = ['Freshman','Sophomore','Junior','Senior','Super Senior!!11!!'];
+    return render_template('/basicinfo.html', years=years)
 
 
 # [START submitted]
