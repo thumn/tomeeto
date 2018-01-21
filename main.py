@@ -143,29 +143,10 @@ def get_displayphoto():
 #     return render_template('photo.html')
 
 #FOODINFO
-# @app.route('/foodinfo', methods=['POST'])
-# def submitted_form():
-#     name = request.form['name']
-#     email = request.form['email']
-#     site = request.form['site_url']
-#     comments = request.form['comments']
-#
-#     # important
-#     new_entity = User(username = name, email = email)
-#     # will use key to query
-#     entity_key = new_entity.put()
-#
-#     # entity_key.delete()
-#
-#     # [END submitted]
-#     # [START render_template]
-#     return render_template(
-#         'submitted_form.html',
-#         name=name,
-#         email=email,
-#         site=site,
-#         comments=comments)
-    #[END render_template]
+@app.route('/foodinfo', methods=['GET'])
+def foodinfo():
+    return(render_template('foodinfo.html'))
+    # [END render_template]
 
 
     # to delete
