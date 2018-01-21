@@ -4,3 +4,79 @@ body {
 	margin: 0;
 	background-attachment: fixed;
 }
+
+/*Start of Landing Page*/
+
+#landingcontainer {
+	transform: translateY(20%);
+}
+
+#maintext {
+	font-size: 136px;
+	color:#FFFFFF;
+}
+
+#subtext {
+	margin-top: -10px;
+	font-size: 36px;
+	color: #BFEAFD;
+}
+
+.icon {
+	padding-top: 30px;
+	text-align: center;
+}
+
+img {
+	width: 265px;
+}
+
+.butt {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#startbutton {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 30px;
+	color: #FFFFFF;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	width: 225px;
+	height: 101px;
+	background-color: transparent;
+}
+
+#startbutton:hover {
+	cursor: pointer;
+	animation: fadein 1s forwards;
+}
+
+#startbutton:active {
+	opacity: 0.6;
+}
+
+.text {
+	margin-top: -30px;
+	text-align: center;
+}
+
+@keyframes fadein {
+	from {background-color: transparent;
+		   color:#FFFFFF;}
+	to {background-color: #BFEAFD;
+		color:#00B1FF;}
+}
+
+/*End of Landing Page*/
+
+/*Start of Basic Info Page*/
+#basiccontainer {
+	margin-top: 60px;
+	margin-left: 100px;
+}
+.pagetitle {
+	font-size: 36px;
+}
+
