@@ -45,11 +45,6 @@ def dropdown():
     years = ['Freshman','Sophomore','Junior','Senior','Super Senior!!11!!'];
     return render_template('/basicinfo.html', years=years)
 
-<<<<<<< HEAD
-# def allowed_file(filename):
-#     return '.' in filename and \
-#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-=======
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
@@ -78,7 +73,6 @@ def submitted_form():
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
->>>>>>> 389c7af48919e2f67f8c457b146802c1c81a62b6
 #PHOTO
 @app.route('/photo', methods=['GET', 'POST'])
 def photo():

@@ -1,50 +1,40 @@
 <html>
   <head>
-    <title>Basic Info</title>
-   <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <!-- <title>Basic Info</title> -->
+   <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    Hello.
-<!-- <<<<<<< HEAD -->
-    <!-- <a href="landingpage"><input type="submit" value ="back">Let's start with some basic facts about you.</a>
-      <div id="basiccontainer">
-        <div id="main">
-          
-            <label for="name">My name is:</label>
-            <input type="text" name="name"><br />
-            <label for="major">My major is:</label>
-            <input type="major" name="major"><br />
-            <label for="year">My year is:</label>
-            <select name=years method="GET" action="/basicinfo">
-              {% for year in years %}
-              <option value="{{year}}" SELECTED>{{year}}</option>
-              {% endfor %}
-            </select><br />
-            <a href="photo"><input type="submit" value ="next"></a>
-          </form> -->
-<!-- ======= -->
-<!--     <div id="container">
-      <a href="landingpage"><input type="submit" value ="back"></a>
-      <div class="pagetitle">
-        <h1>Let's start with some basic facts about you.</h1>
-      </div>
+    <a href="/"><input class="navbutton back" type="submit" value ="back"></a>
+    <div id="basiccontainer">
+      <div class="pagetitle">Let's start with some basic facts about you.</div>
+
       <div id="main">
-        <form method="post" action="submitted">
-          <label for="name">My name is:</label>
-          <input type="text" name="name"><br />
-          <label for="major">My major is:</label>
-          <input type="major" name="major"><br />
-          <label for="year">My year is:</label>
-          <select name=year method="GET" action="/basicinfo">
-            <option value="Freshman" SELECTED>Freshman</option>
-            <option value="Sophomore">Sophomore</option>
-            <option value="Junior">Junior</option>
-            <option value="Senior">Senior</option>
-          </select><br />
-          <input type="submit" value="Next">
-        </form> -->
-<!-- >>>>>>> 32ba6a2ef33acc63af575005e18e0c6d94082ee9 -->
-<!--       </div>
-    </div> -->
+        <form method="post" action="photo">
+
+          <div class = "labels">
+            <div class="names">
+              <label for="name">My name is:</label>
+              <br><input class="box" type="text" name="name"><br />
+            </div>
+            <div class="majors">
+              <label class="majors" for="major">My major is:</label>
+              <br><input class="box" type="text" name="major"><br />
+            </div>
+            <label class="years" for="year">My year is:</label>
+          </div>
+
+          <div class="selectyear">
+            <select class="options" name=year method="GET" action="/basicinfo">
+              <option value="Freshman" SELECTED>Freshman</option>
+              <option value="Sophomore">Sophomore</option>
+              <option value="Junior">Junior</option>
+              <option value="Senior">Senior</option>
+            </select><br />
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <a href="photo"><input class="navbutton next" type="submit" value="next"></a>
   </body>
 </html>

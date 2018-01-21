@@ -78,5 +78,85 @@ img {
 }
 .pagetitle {
 	font-size: 36px;
+	color:#BFEAFD;
+}
+
+.labels {
+	margin-top: 20px;
+	font-size: 64px;
+	color: #FFFFFF;
+}
+
+.box {
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	width: 1091px;
+	height: 90px;
+	padding-left: 20px;
+	font-size: 48px;
+	color: #BFEAFD;
+}
+
+.majors {
+	margin-top: 50px;
+	margin-bottom: 80px;
+}
+
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.selectyear {
+	display: inline-block;
+	float: right;
+	margin-right: 220px;
+	margin-top: -80px;
+	padding-bottom: 150px;
+}
+
+.options {
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	width: 650px;
+	height: 90px;
+	color: #BFEAFD;
+	font-size: 48px;
+	padding-left: 20px;
+	list-style: none;
+}
+
+.navbutton {
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	color: #BFEAFD;
+	font-size: 30px;
+	width: 125px;
+}
+
+.navbutton:hover {
+	cursor: pointer;
+	animation: fadein 1s forwards;
+}
+
+.back {
+	margin-left: 30px;
+	margin-top: 30px;
+}
+
+.next {
+	margin-top: 80px;
+	display: inline-block;
+	float: right;
+	margin-right: -850px;
 }
 
