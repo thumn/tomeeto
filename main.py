@@ -24,43 +24,30 @@ from google.appengine.ext import ndb
 app = Flask(__name__)
 # [END create_app]
 
-
 class User(ndb.Model):
-    username = ndb.StringProperty()
-    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    major = ndb.StringProperty()
+    year = ndb.StringProperty()
 
 @app.route('/')
 def landing_page():
     return render_template('landingpage.html')
-
-
-
-# [START form]
-# @app.route('/basicinfo')
-# def form():
-#     return render_template('basicinfo.html')
-# [END form]
 
 @app.route('/basicinfo', methods=['GET'])
 def dropdown():
     years = ['Freshman','Sophomore','Junior','Senior','Super Senior!!11!!'];
     return render_template('/basicinfo.html', years=years)
 
-
-# [START submitted]
-@app.route('/')
-def index():
-    return 'This is the home page.'
-
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
+    print "hello"
     name = request.form['name']
-    email = request.form['email']
-    site = request.form['site_url']
-    comments = request.form['comments']
+    major = request.form['major']
+    print "hi"
+    # year = request.form['year']
 
     # important
-    new_entity = User(username = name, email = email)
+    new_entity = User(name = name, major = major)
     # will use key to query
     entity_key = new_entity.put()
 
@@ -71,9 +58,7 @@ def submitted_form():
     return render_template(
         'submitted_form.html',
         name=name,
-        email=email,
-        site=site,
-        comments=comments)
+        major=major)
     # [END render_template]
 
     # to delete
