@@ -94,6 +94,11 @@ def photo():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return render_template('photouploaded.html', file)
 
+@app.route('/photouploaded', methods=['GET', 'POST'])
+def photouploaded():
+    if request.method == 'GET':
+        return render_template('photouploaded.html')
+
 #FOODINFO
 @app.route('/foodinfo', methods=['GET','POST'])
 def food_info():
@@ -144,6 +149,10 @@ def email():
         # will use key to query
         entity_key = new_entity.put()
 
+
+@app.route('/loading')
+def loading():
+    return render_template('loading.html')
 
     # to delete
     # call entity_key.delete to delete
