@@ -155,6 +155,9 @@ def get_displayphoto():
 #     return render_template('photo.html')
 
 #FOODINFO
+@app.route('/foodinfo', methods=['GET'])
+def foodinfo():
+    return (render_template('foodinfo.html'))
 # @app.route('/foodinfo', methods=['POST'])
 # def submitted_form():
 #     name = request.form['name']

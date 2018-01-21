@@ -4,18 +4,18 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <a href="photo"><input type="submit" value ="re-upload"></a>
-      <div class="pagetitle">
-        <h1>What do you look like? Upload a photo.</h1>
+    <a href="basicinfo"><input id="navbutton" class="back" type="submit" value ="back"></a>
+    <div id="photocontainer">
+      <!-- <a href="photo"><input type="submit" value ="re-upload"></a> -->
+      <div class="pagetitle">What do you look like? Upload a photo.
       </div>
       <div id="main">
         <img src="{{file}}" alt="User Icon" width="200px"> <br />
 
         <!-- style image into a circle -->
-        <a href="foodinfo"><input type="submit" value ="next"></a>
       </div>
     </div>
+     <a href="foodinfo"><input id="navbutton" class="next" type="submit" value="next"></a>
   </body>
 
   <!-- <script type="text/javascript">

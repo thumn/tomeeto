@@ -100,7 +100,7 @@ img {
 	height: 90px;
 	padding-left: 20px;
 	font-size: 48px;
-	color: #BFEAFD;
+	color: #FFFFFF;
 }
 
 .majors {
@@ -152,31 +152,11 @@ textarea:focus, input:focus{
 	margin-top: 80px
 }
 
-.upload {
-	background-color: transparent;
-	border-color: #BFEAFD;
-	border-width: 4px;
-	border-radius: 28px;
-	border-style: solid;
-	color: #BFEAFD;
-	font-size: 36px;
-	width: 150px;
-}
-
-.upload:hover {
-	cursor: pointer;
-	animation: fadein 1s forwards;
-}
-
-.choose {
-	transform: scale(1.5);
-}
-
 /*end of basic info page*/
 
 /*start of food info page*/
 #foodcontainer {
-	margin-top: -50px;
+	margin-top: -70px;
 	margin-left: 50px;
 	transform: scale(0.6);
 }
@@ -206,8 +186,65 @@ textarea:focus, input:focus{
 
 /*end of food info page*/
 
+/*start of photo page*/
+#photocontainer {
+	/*margin-top: -100px;*/
+	margin: 100px;
+	margin-top: 20px;
+	transform: scale(0.6);
+}
+
+.preview {
+	text-align: center;
+}
+
+.content {
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.upload {
+	margin-top: 50px;
+	margin-left: -70px;
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	color: #BFEAFD;
+	font-size: 36px;
+	width: 150px;
+}
+
+.upload:hover {
+	cursor: pointer;
+	animation: fadein 1s forwards;
+}
+
+.choose {
+	transform: scale(1.5);
+}
+/*end of photo page*/
+
 /*back and next buttons*/
-.navbutton {
+#navbutton {
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	color: #BFEAFD;
+	font-size: 30px;
+	padding: 0px;
+	transform: scale(0.7);
+}
+
+#navbutton:hover {
+	cursor: pointer;
+	animation: fadein 1s forwards;
+}
+
+#basicnavbutton {
 	background-color: transparent;
 	border-color: #BFEAFD;
 	border-width: 4px;
@@ -216,17 +253,29 @@ textarea:focus, input:focus{
 	color: #BFEAFD;
 	font-size: 30px;
 	width: 125px;
-	transform: scale(0.8);
+	padding: 0px;
+	transform: scale(1.2);
 }
 
-.navbutton:hover {
+#basicnavbutton:hover {
 	cursor: pointer;
 	animation: fadein 1s forwards;
 }
 
 .back {
+	margin-left: 60px;
+	margin-top: 30px;*/
+	text-align: center;
+	width: 125px;
+}
+
+.basicback {
 	/*margin-left: -80px;
 	margin-top: -50px;*/
+	text-align: center;
+	margin-bottom: 100px;
+	margin-left: -400px;
+	margin-top: -20px;
 }
 
 .next {
@@ -234,12 +283,26 @@ textarea:focus, input:focus{
 	display: inline-block;
 	float: right;*/
 	position:fixed;
-	left: 1200px;
-	bottom: 50px;
+	left: 1100px;
+	width: 125px;
+
+	/*bottom: -300px;*/
 }
 
+.basicnext {
+	/*margin-top: -100px;
+	display: inline-block;
+	float: right;*/
+	position:fixed;
+	bottom: -200px;
+	left: 1200px;
+	/*bottom: -300px;*/
+}
+
+/*start of loading page*/
+
 .findmybuddy {
-	width: auto;
+	width: 300;
 	left: 1050px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -249,6 +312,7 @@ textarea:focus, input:focus{
 
 .loading-icon {
 	width: 600px;
+	animation: pulse 3s linear 0s infinite;
 }
 
 #emailcontainer {
@@ -258,7 +322,32 @@ textarea:focus, input:focus{
 }
 
 #loadingcontainer {
-	margin: auto;
+	padding-top: 50px;
+	margin: 0 auto;
 	width: 70%;
 	text-align: center;
 }
+
+.loading-icon {
+	width: 501px;
+}
+
+.message {
+	font-size: 24px;
+}
+
+.one {
+	color: #8FD9F7;
+}
+
+.two {
+	color: #C0E8FB;
+}
+
+@keyframes pulse {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.08); }
+	100% { transform: scale(1); }
+}
+
+/*end of loading page*/

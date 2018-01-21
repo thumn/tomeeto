@@ -4,21 +4,20 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <a href="basicinfo"><input type="submit" value ="back"></a>
-      <div class="pagetitle">
-        <h1>What do you look like? Upload a photo.</h1>
-      </div>
-      <div id="main">
-        <form method="post" enctype="multipart/form-data" action="photo">
-          <input type="file" name="photo">
-          <input type="submit" value="Upload" name="photo">
-          <input type="hidden" value={{entity_key}} name="entity_key">
-        </form>
-      </div>
-
-      <form method="post" action="match"><input type="submit" value ="next"></form>
+    <a href="basicinfo"><input id="navbutton" class="back" type="submit" value ="back"></a>
+    <div id="photocontainer">
+      <div class="pagetitle">What do you look like? Upload a photo.</div>
+      <div class="content">
+        <div id="main">
+          <form method="post" enctype="multipart/form-data" action="photo">
+            <input class="choose" type="file" name="photo"> <br>
+            <input class="upload" type="submit" value="Upload" name="photo">
+            <input type="hidden" value={{entity_key}} name="entity_key">
+          </form>
+        </div>
     </div>
+    </div>
+    <a href="foodinfo"><input id="navbutton" class="next" type="submit" value="next"></a>
   </body>
 </html>
 
