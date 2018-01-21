@@ -17,11 +17,16 @@ import logging
 
 # [START imports]
 from flask import Flask, render_template, request
+from google.appengine.ext import ndb
 # [END imports]
 
 # [START create_app]
 app = Flask(__name__)
 # [END create_app]
+
+class User(ndb.Model):
+    username = ndb.StringProperty()
+    email = ndb.StringProperty()
 
 
 # [START form]
@@ -32,12 +37,23 @@ def form():
 
 
 # [START submitted]
+@app.route('/')
+def index():
+    return 'This is the home page.'
+
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
     name = request.form['name']
     email = request.form['email']
     site = request.form['site_url']
     comments = request.form['comments']
+
+    # important
+    new_entity = User(username = name, email = email)
+    # will use key to query
+    entity_key = new_entity.put()
+
+    # entity_key.delete()
 
     # [END submitted]
     # [START render_template]
@@ -48,6 +64,11 @@ def submitted_form():
         site=site,
         comments=comments)
     # [END render_template]
+
+    # to delete
+    # call entity_key.delete to delete
+    # query = User.query(User.preferences == user1.preference)
+    # returns array, get first user, match and remove from datastore
 
 
 @app.errorhandler(500)
