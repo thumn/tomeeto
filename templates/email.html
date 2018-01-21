@@ -4,18 +4,20 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <a href="foodinfo"><input type="submit" value ="back"></a>
+    <a href="foodinfo"><input type="submit" class="navbutton back" value ="back"></a>
+    <div id="emailcontainer">
       <div class="pagetitle">
-        <h1>Help your lunch buddy get in touch with you.</h1>
+        Help your lunch buddy get in touch with you.
       </div>
       <div id="main">
         <form method="post" action="email">
-          <label for="email">My email is:</label>
-          <input type="text" name="email"><br />
+          <br />
+          <label class="labels" for="email">My email is:</label>
+          <br /><br /><br />
+          <input class="box" type="text" name="email"><br />
         </form>
-        <a href="loading"><input type="submit" value ="find my lunch buddy"></a>
       </div>
     </div>
+    <a href="loading"><input type="submit" class="navbutton next findmybuddy" value ="find my lunch buddy"></a>
   </body>
 </html>
