@@ -20,7 +20,7 @@ import cloudstorage as gcs
 import io
 
 # [START imports]
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, session
 from google.appengine.ext import ndb
 from google.appengine.api import app_identity
 # [END imports]
@@ -30,15 +30,24 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # [START create_app]
 app = Flask(__name__)
+app.secret_key = "super secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+if __name__ == "__main__":
+    app.config['SESSION_TYPE'] = 'filesystem'
+    sess.init_app(app)
+    app.debug = True
 # [END create_app]
 
 class User(ndb.Model):
     name = ndb.StringProperty()
     major = ndb.StringProperty()
     year = ndb.StringProperty()
-    photo = ndb.BlobProperty()
+    photo = ndb.StringProperty()
     user_id = ndb.IntegerProperty()
+    match = ndb.StringProperty()
+
+# class Match(ndb.Model):
+#     user1 = User(user=)
 
 #LANDINGPAGE
 @app.route('/')
@@ -57,6 +66,7 @@ def submitted_form():
     major = request.form['major']
     year = request.form['year']
 
+    session['name'] = name
     # important
     new_entity = User(name = name, major = major, year = year)
     # will use key to query
@@ -96,6 +106,8 @@ def upload_photo():
     #app_identity.get_default_gcs_bucket_name()
     print bucket_name
     filename = '/' + bucket_name + '/' + photo.filename
+    user.photo = photo.filename
+    user.put()
 
     gcs_file = gcs.open(filename, 'w')
     gcs_file.write(photo.read())
@@ -185,6 +197,28 @@ def email():
         new_entity = User(email = email)
         # will use key to query
         entity_key = new_entity.put()
+
+@app.route('/match', methods=['GET', 'POST'])
+def match():
+    if request.method == 'GET':
+        return render_template('match.html')
+    if request.method == 'POST':
+        print "safe"
+        user_name = session.get('name')
+        print user_name
+        # current_user = User.query(name=user_name).fetch().first()
+        current_user = User.query(User.name == user_name).fetch()[0]
+        print current_user
+        match_user = User.query(User.name != user_name).fetch()[0]
+        print "blah"
+        print match_user
+        print match_user.name
+        current_user.match = match_user.name
+        match_user.match = current_user.name
+        current_user.put()
+        match_user.put()
+
+        return render_template('/match.html', currentusermatch=current_user.match)
 
 
 @app.route('/loading')

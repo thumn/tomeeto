@@ -1,23 +1,26 @@
-<html>
-  <head>
-    <!-- <title>Basic Info</title> -->
-   <link rel="stylesheet" type="text/css" href="/static/style.css">
-  </head>
-  <body>
-    <div id="container">
-      <div class="pagetitle">
-        Congratulations! You were matched with...
-        <h1>Mimi<h1>
-          <!-- {{name}} -->
-        <img src = "https://storage.googleapis.com/tomeeto-hackdavis.appspot.com/"+"BTS.JIMINI'MCRYING.jpg">
-        <!-- {{img}} -->
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!-- <title>Basic Info</title> -->
+     <meta charset="utf-8">
+     <title>Match</title>
+     <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+      <div id="container">
+        <div class="pagetitle">
+          Congratulations! You were matched with...
+          <h1>{{currentusermatch}}</h1>
+            <!-- {{name}} -->
+          <img src = "https://storage.googleapis.com/tomeeto-hackdavis.appspot.com/"+"BTS.JIMINI'MCRYING.jpg">
+          <!-- {{img}} -->
+        </div>
+        <h2>Mimi is a sophomore studying Computer Science. </h2>
+        <!-- <h2>{{name}} is a {{year}} studying {{major}}.</h2> -->
+        <h3>Contact your buddy at katharine.shalf@berkeley.edu!</h3>
+        <!-- {{email}} -->
+        <a href="foodinfo"><input class="navbutton next" type="submit" value="Get talking."></a>
       </div>
-      <h2>Mimi is a sophomore studying Computer Science. </h2>
-      <!-- <h2>{{name}} is a {{year}} studying {{major}}.</h2> -->
-      <h3>Contact your buddy at katharine.shalf@berkeley.edu!</h3>
-      <!-- {{email}} -->
-      <a href="foodinfo"><input class="navbutton next" type="submit" value="Get talking."></a>
-    </div>
-  </body>
+    </body>
 
-</html>
+  </html>
