@@ -40,7 +40,7 @@ def landing_page():
     return render_template('landingpage.html')
 
 #BASICINFO
-@app.route('/basicinfo', methods=['GET'])
+@app.route('/basicinfo', methods=['GET', 'POST'])
 def dropdown():
     years = ['Freshman','Sophomore','Junior','Senior','Super Senior!!11!!'];
     return render_template('/basicinfo.html', years=years)

@@ -5,7 +5,7 @@
   </head>
   <body>
     <a href="/"><input class="navbutton back" type="submit" value ="back"></a>
-    <div id="basiccontainer">
+    <div id="container">
       <div class="pagetitle">Let's start with some basic facts about you.</div>
 
       <div id="main">
@@ -31,8 +31,18 @@
               <option value="Senior">Senior</option>
             </select><br />
           </div>
-
         </form>
+
+        <div class="photoupload">
+        <label class="labels" id="photos" for="photo">Upload a photo</label>
+          <form method="post" enctype="multipart/form-data" action="/basicinfo">
+            <div class="photobuttons">
+              <p><input class="choose" type= file name=file>
+              <input class="upload" type="submit" value =Upload></a>
+            </div>
+          </form>
+        </div>
+
       </div>
     </div>
     <a href="photo"><input class="navbutton next" type="submit" value="next"></a>
