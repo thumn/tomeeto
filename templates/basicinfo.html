@@ -10,32 +10,19 @@
         <h1>Let's start with some basic facts about you.</h1>
       </div>
       <div id="main">
-<<<<<<< HEAD
         <form method="post" action="submitted">
-=======
-        <form method="post" action="{{ url_for('photo') }}">
->>>>>>> 801a5a0aa9cbd25908174117a8dfa14b940ca599
           <label for="name">My name is:</label>
           <input type="text" name="name"><br />
           <label for="major">My major is:</label>
           <input type="major" name="major"><br />
           <label for="year">My year is:</label>
-<<<<<<< HEAD
-          <!-- <select name=years method="GET" action="/basicinfo"> -->
-            <!-- {% for year in years %}
-            <option value="{{year}}" SELECTED>{{year}}</option>
-            {% endfor %} -->
-          <!-- </select><br /> -->
-          <a href="submitted"><input type="submit" value ="next"></a>
-=======
-          <select name=years method="GET" action="/basicinfo">
+          <select name=year method="GET" action="/basicinfo">
             <option value="Freshman" SELECTED>Freshman</option>
             <option value="Sophomore">Sophomore</option>
             <option value="Junior">Junior</option>
             <option value="Senior">Senior</option>
           </select><br />
           <input type="submit" value="Next">
->>>>>>> 801a5a0aa9cbd25908174117a8dfa14b940ca599
         </form>
       </div>
     </div>

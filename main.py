@@ -48,14 +48,14 @@ def dropdown():
 
 @app.route('/submitted', methods=['POST'])
 def submitted_form():
-    print "hello"
     name = request.form['name']
     major = request.form['major']
     print "hi"
-    # year = request.form['year']
+    year = request.form['year']
+    print "hello"
 
     # important
-    new_entity = User(name = name, major = major)
+    new_entity = User(name = name, major = major, year = year)
     # will use key to query
     entity_key = new_entity.put()
 
@@ -66,7 +66,8 @@ def submitted_form():
     return render_template(
         'submitted_form.html',
         name=name,
-        major=major)
+        major=major,
+        year=year)
     # [END render_template]
 
 def allowed_file(filename):
