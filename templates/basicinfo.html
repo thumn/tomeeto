@@ -17,9 +17,10 @@
           <input type="major" name="major"><br />
           <label for="year">My year is:</label>
           <select name=years method="GET" action="/basicinfo">
-            {% for year in years %}
-            <option value="{{year}}" SELECTED>{{year}}</option>
-            {% endfor %}
+            <option value="Freshman" SELECTED>Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
           </select><br />
           <input type="submit" value="Next">
         </form>
