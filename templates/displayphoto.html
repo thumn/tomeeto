@@ -4,16 +4,17 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <a href="basicinfo"><input type="submit" value ="back"></a>
-      <div class="pagetitle">
-        <h1>What do you look like? Upload a photo.</h1>
-      </div>
-      <div id="main">
-          <img src="https://storage.googleapis.com/tomeeto-hackdavis.appspot.com/{{img_name}}">
-        </form>
+    <a href="photo"><input id="navbutton" class="back" type="submit" value ="back"></a>
+    <div id="photocontainer">
+      <div class="preview">
+        <div class="pagetitle">Photo Uploaded!</div>
+        <div id="main">
+            <img src="https://storage.googleapis.com/tomeeto-hackdavis.appspot.com/{{img_name}}">
+          </form>
+        </div>
       </div>
     </div>
+    <a href="foodinfo"><input id="navbutton" class="next" type="submit" value="next"></a>
   </body>
 
   <!-- <script type="text/javascript">
