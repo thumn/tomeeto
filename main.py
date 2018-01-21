@@ -29,10 +29,10 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # [END create_app]
 
-
 class User(ndb.Model):
-    username = ndb.StringProperty()
-    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    major = ndb.StringProperty()
+    year = ndb.StringProperty()
 
 #LANDINGPAGE
 @app.route('/')
@@ -45,9 +45,40 @@ def dropdown():
     years = ['Freshman','Sophomore','Junior','Senior','Super Senior!!11!!'];
     return render_template('/basicinfo.html', years=years)
 
+<<<<<<< HEAD
 # def allowed_file(filename):
 #     return '.' in filename and \
 #            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+=======
+
+@app.route('/submitted', methods=['POST'])
+def submitted_form():
+    name = request.form['name']
+    major = request.form['major']
+    print "hi"
+    year = request.form['year']
+    print "hello"
+
+    # important
+    new_entity = User(name = name, major = major, year = year)
+    # will use key to query
+    entity_key = new_entity.put()
+
+    # entity_key.delete()
+
+    # [END submitted]
+    # [START render_template]
+    return render_template(
+        'submitted_form.html',
+        name=name,
+        major=major,
+        year=year)
+    # [END render_template]
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+>>>>>>> 389c7af48919e2f67f8c457b146802c1c81a62b6
 #PHOTO
 @app.route('/photo', methods=['GET', 'POST'])
 def photo():
@@ -93,6 +124,7 @@ def photo():
 #         site=site,
 #         comments=comments)
     #[END render_template]
+
 
     # to delete
     # call entity_key.delete to delete

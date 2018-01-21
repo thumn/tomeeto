@@ -29,16 +29,17 @@
         <h1>Let's start with some basic facts about you.</h1>
       </div>
       <div id="main">
-        <form method="post" action="{{ url_for('photo') }}">
+        <form method="post" action="submitted">
           <label for="name">My name is:</label>
           <input type="text" name="name"><br />
           <label for="major">My major is:</label>
           <input type="major" name="major"><br />
           <label for="year">My year is:</label>
-          <select name=years method="GET" action="/basicinfo">
-            {% for year in years %}
-            <option value="{{year}}" SELECTED>{{year}}</option>
-            {% endfor %}
+          <select name=year method="GET" action="/basicinfo">
+            <option value="Freshman" SELECTED>Freshman</option>
+            <option value="Sophomore">Sophomore</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
           </select><br />
           <input type="submit" value="Next">
         </form> -->
