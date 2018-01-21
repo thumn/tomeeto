@@ -18,7 +18,7 @@ import webapp2
 class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('Hello! ldsjkfa; Version 3')
+        self.response.write('Hello! im going to throw myself against a wall maybe; Version 3')
 
 
 app = webapp2.WSGIApplication([
