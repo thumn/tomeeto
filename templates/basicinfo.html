@@ -10,7 +10,7 @@
         <h1>Let's start with some basic facts about you.</h1>
       </div>
       <div id="main">
-        <form method="post" action="{{ url_for('submitted_form') }}">
+        <form method="post" action="{{ url_for('photo') }}">
           <label for="name">My name is:</label>
           <input type="text" name="name"><br />
           <label for="major">My major is:</label>
@@ -21,7 +21,7 @@
             <option value="{{year}}" SELECTED>{{year}}</option>
             {% endfor %}
           </select><br />
-          <a href="photo"><input type="submit" value ="next"></a>
+          <input type="submit" value="Next">
         </form>
       </div>
     </div>
