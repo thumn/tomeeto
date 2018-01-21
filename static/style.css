@@ -74,7 +74,7 @@ img {
 /*End of Landing Page*/
 
 /*Start of Basic Info Page*/
-#container {
+#basiccontainer { 
 	margin-top: -100px;
 	margin-left: 50px;
 	transform: scale(0.6);
@@ -116,7 +116,7 @@ textarea:focus, input:focus{
 .selectyear {
 	display: inline-block;
 	float: right;
-	margin-right: 220px;
+	margin-right: 290px;
 	margin-top: -80px;
 	padding-bottom: 150px;
 }
@@ -131,38 +131,11 @@ textarea:focus, input:focus{
 	height: 90px;
 	color: #BFEAFD;
 	font-size: 48px;
-	padding-left: 20px;
+	padding-left: 15px;
 	list-style: none;
 }
 
-.navbutton {
-	background-color: transparent;
-	border-color: #BFEAFD;
-	border-width: 4px;
-	border-radius: 28px;
-	border-style: solid;
-	color: #BFEAFD;
-	font-size: 30px;
-	width: 125px;
-	transform: scale(0.8);
-}
 
-.navbutton:hover {
-	cursor: pointer;
-	animation: fadein 1s forwards;
-}
-
-.back {
-	/*margin-left: -80px;
-	margin-top: -50px;*/
-}
-
-.next {
-	margin-top: -100px;
-	display: inline-block;
-	float: right;
-/*	margin-right: -100px;*/
-}
 
 .photobuttons {
 	display: inline-block;
@@ -192,10 +165,63 @@ textarea:focus, input:focus{
 
 .upload:hover {
 	cursor: pointer;
+	animation: fadein 1s forwards;
 }
 
 .choose {
 	transform: scale(1.5);
 }
+
+/*end of basic info page*/
+
+/*start of food info page*/
+#foodcontainer { 
+	/*margin-top: -100px;*/
+	margin-left: 50px;
+	transform: scale(0.6);
+}
+
+.small {
+	width: 900px;
+}
+
+.hobby {
+	
+}
+/*end of food info page*/
+
+/*back and next buttons*/
+.navbutton {
+	background-color: transparent;
+	border-color: #BFEAFD;
+	border-width: 4px;
+	border-radius: 28px;
+	border-style: solid;
+	color: #BFEAFD;
+	font-size: 30px;
+	width: 125px;
+	transform: scale(0.8);
+}
+
+.navbutton:hover {
+	cursor: pointer;
+	animation: fadein 1s forwards;
+}
+
+.back {
+	/*margin-left: -80px;
+	margin-top: -50px;*/
+}
+
+.next {
+	/*margin-top: -100px;
+	display: inline-block;
+	float: right;*/
+	position:fixed;
+	left: 1200px;
+	bottom: 50px;
+}
+
+
 
 

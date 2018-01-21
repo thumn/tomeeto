@@ -4,14 +4,14 @@
    <link rel="stylesheet" type="text/css" href="/static/style.css">
   </head>
   <body>
-    <div id="container">
-      <a href="photo"><input type="submit" value ="back"></a>
+    <a href="basicinfo"><input class="navbutton back" type="submit" value ="back"></a>
+    <div id="foodcontainer">
       <div class="pagetitle">
-        <h1>Let's start with some basic facts about you.</h1>
+        Let's start with some basic facts about you.
       </div>
       <div id="main">
         <form method="post" action="foodinfo">
-          <label for="food">I'm in the mood for: </label>
+          <label class="labels" for="food">I'm in the mood for: </label>
           <select name=year method="GET" action="/basicinfo">
             <option value="American"SELECTED>American</option>
             <option value="Chinese">Chinese</option>
@@ -20,13 +20,13 @@
             <option value="Japanese">Thai</option>
             <option value="Senior">Other</option>
           </select><br />
-          <label for="hobbies">My hobbies are: </label>
-          <input type="text" name="hobbies"><br />
-          <label for="interests">I like:</label>
-          <input type="text" name="interests"><br />
-          <a href="email"><input type="submit" value="next"></a>
+          <label class="labels hobby" for="hobbies">My hobbies are: </label>
+          <input class="box small" type="text" name="hobbies"><br />
+          <label class="labels interest" for="interests">I like:</label>
+          <input class="box small" type="text" name="interests"><br />
         </form>
       </div>
     </div>
+    <a href="email"><input class="navbutton next" type="submit" value="next"></a>
   </body>
 </html>
