@@ -175,7 +175,7 @@ textarea:focus, input:focus{
 /*end of basic info page*/
 
 /*start of food info page*/
-#foodcontainer { 
+#foodcontainer {
 	margin-top: -50px;
 	margin-left: 50px;
 	transform: scale(0.6);
