@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Match</title>
-  </head>
-  <body>
-    <h1>{{name}}</h1>
-      <h1>{{major}}</h1>
-        <h1>{{year}}</h1>
-          <h1>{{photo}}</h1>
-  </body>
-</html>
+  <html>
+    <head>
+      <!-- <title>Basic Info</title> -->
+     <meta charset="utf-8">
+     <title>Match</title>
+     <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+      <div id="container">
+        <div class="pagetitle">
+          Congratulations! You were matched with...
+          <h1>{{name}}</h1>
+            <!-- {{name}} -->
+          <img src = "https://storage.googleapis.com/tomeeto-hackdavis.appspot.com/"+"BTS.JIMINI'MCRYING.jpg">
+          <!-- {{img}} -->
+        </div>
+        <h2>{{name}} is a {{year}} studying {{major}}. </h2>
+        <!-- <h2>{{name}} is a {{year}} studying {{major}}.</h2> -->
+        <h3>Contact your buddy at katharine.shalf@berkeley.edu!</h3>
+        <!-- {{email}} -->
+        <a href="foodinfo"><input class="navbutton next" type="submit" value="Get talking."></a>
+      </div>
+    </body>
+
+  </html>
