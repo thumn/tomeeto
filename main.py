@@ -217,8 +217,8 @@ def match():
         match_user.match = current_user.name
         current_user.put()
         match_user.put()
-
-        return render_template('/match.html', currentusermatch=current_user.match)
+        print "complete"
+        return render_template('/match.html',name=current_user.match, major=match_user.major, year=match_user.year,photo=match_user.photo)
 
 
 @app.route('/loading')
