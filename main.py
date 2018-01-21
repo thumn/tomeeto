@@ -225,9 +225,9 @@ def match():
 def loading():
     return render_template('loading.html')
 
-@app.route('/match', methods=['GET'])
-def match():
-    return render_template('match.html')
+# @app.route('/match', methods=['GET'])
+# def match():
+#     return render_template('match.html')
 
 @app.errorhandler(500)
 def server_error(e):
